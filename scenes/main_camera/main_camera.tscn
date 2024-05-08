@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpbo0owyo0g5l"]
+[gd_scene load_steps=2 format=3 uid="uid://bpbo0owyo0g5l"]
 
 [ext_resource type="Script" path="res://scenes/main_camera/main_camera.gd" id="1_w2ph6"]
-[ext_resource type="Texture2D" uid="uid://diagq05q0iitr" path="res://assets/rpgTile009.png" id="2_h0vkm"]
 
 [node name="Camera2D" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 script = ExtResource("1_w2ph6")
-
-[node name="RpgTile009" type="Sprite2D" parent="."]
-position = Vector2(10, 4)
-texture = ExtResource("2_h0vkm")

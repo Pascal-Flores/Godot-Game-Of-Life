@@ -1,16 +1,21 @@
 extends Camera2D
 
-const zoom_factor = 1.1;
-const drag_speed = 10;
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const zoom_factor : float = 1.1;
+const drag_speed : float = 150;
 
+var drag_origin : Vector2;
+var shift_amount : Vector2;
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_released("zoom_in"):
 		zoom *= zoom_factor;
 	elif Input.is_action_just_released("zoom_out"):
 		zoom /= zoom_factor;
-	print(zoom)
+		
+	if Input.is_action_just_pressed("move_around"):
+		drag_origin = get_viewport().get_mouse_position();
+	elif Input.is_action_pressed("move_around"):
+		shift_amount = (get_viewport().get_mouse_position() - drag_origin) * drag_speed * delta * -1;
+		translate(shift_amount);
+		drag_origin = get_viewport().get_mouse_position();
+
