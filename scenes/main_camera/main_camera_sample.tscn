@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1hccxag2hjed"]
+[gd_scene load_steps=4 format=3 uid="uid://d1hccxag2hjed"]
 
 [ext_resource type="PackedScene" uid="uid://bpbo0owyo0g5l" path="res://scenes/main_camera/main_camera.tscn" id="1_ygnub"]
+
+[sub_resource type="SystemFont" id="SystemFont_wcn7a"]
+font_names = PackedStringArray("Consolas")
+hinting = 0
+oversampling = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2j8m"]
+font = SubResource("SystemFont_wcn7a")
 
 [node name="root" type="Node2D"]
 
@@ -12,13 +20,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.5
-offset_top = -26.0
-offset_right = 118.5
-offset_bottom = 26.0
+offset_left = -128.0
+offset_top = -20.0
+offset_right = 128.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Click and drag to move around
 scroll to zoom in / zoom out"
+label_settings = SubResource("LabelSettings_f2j8m")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
