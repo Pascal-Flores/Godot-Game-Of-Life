@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://iiu2d54q6n65"]
+
+[ext_resource type="PackedScene" uid="uid://c0uu3sbfgyn4c" path="res://scenes/terrain/terrain.tscn" id="1_cqigb"]
+[ext_resource type="PackedScene" uid="uid://bpbo0owyo0g5l" path="res://scenes/main_camera/main_camera.tscn" id="2_o17l0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("2_o17l0")]
+
+[node name="terrain" parent="." instance=ExtResource("1_cqigb")]
