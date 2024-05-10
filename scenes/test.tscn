@@ -8,3 +8,4 @@
 [node name="Camera2D" parent="." instance=ExtResource("2_o17l0")]
 
 [node name="terrain" parent="." instance=ExtResource("1_cqigb")]
+next_generation_frequency = 20.0

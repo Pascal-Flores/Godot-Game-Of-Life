@@ -2,6 +2,7 @@ extends Node2D
 
 const cell_scene : Resource = preload("res://scenes/cell/cell.tscn");
 const cell_size : int = 16;
+@export_range(1,50, 1) var next_generation_frequency : float = 1;
 
 var hover_cell : Node;
 var generation_timer : Timer;
@@ -9,10 +10,11 @@ var generation_timer : Timer;
 func _ready():
 	hover_cell = cell_scene.instantiate();
 	hover_cell.modulate.a = 0.5;
+	hover_cell.get_node("Area2D").monitorable = false;
 	add_child(hover_cell, false, Node.INTERNAL_MODE_FRONT);
 	
 	generation_timer = Timer.new();
-	generation_timer.wait_time = 1;
+	generation_timer.wait_time = 1 / next_generation_frequency;
 	generation_timer.one_shot = false;
 	generation_timer.autostart = false;
 	generation_timer.connect("timeout", next_cell_generation);
@@ -35,11 +37,10 @@ func _process(delta):
 			var cell = cell_scene.instantiate();
 			cell.position = snapped_mouse_position;
 			add_child(cell);
-			print("New cell added. Number of cells : %s" % get_child_count());
 
 func snap_to_grid(position : Vector2i) -> Vector2i:
-	return position - (position % cell_size);
-
+	return Vector2(position.x - posmod(position.x, cell_size), position.y - posmod(position.y, cell_size));
+	
 func next_cell_generation():
 	var possible_new_cells_positions : Array[Vector2] = [];
 	var new_cells : Array = [];
