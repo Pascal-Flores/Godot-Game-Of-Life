@@ -65,7 +65,7 @@ func add_possible_new_cells(cell : Node2D, possible_new_cells_positions : Array[
 	var offset_position : Vector2;
 	for offset in offsets:
 		offset_position = cell.position + offset;
-		if not cell_neighbours.any(func(neighbour : Area2D): return (neighbour.position == offset_position)):
+		if not cell_neighbours.any(func(neighbour : Area2D): return (neighbour.global_position == offset_position)):
 			possible_new_cells_positions.append(offset_position);
 
 func create_new_cells(possible_new_cells_positions : Array[Vector2]) -> Array:
