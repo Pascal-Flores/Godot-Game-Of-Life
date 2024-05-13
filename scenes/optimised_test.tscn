@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://j27t62cacmc4"]
+
+[ext_resource type="PackedScene" uid="uid://bpbo0owyo0g5l" path="res://scenes/main_camera/main_camera.tscn" id="1_bobdw"]
+[ext_resource type="PackedScene" uid="uid://fjm4pn70q51x" path="res://scenes/optimised_terrain/optimised_terrain.tscn" id="2_icl5y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_bobdw")]
+
+[node name="terrain" parent="." instance=ExtResource("2_icl5y")]
+next_generation_frequency = 1000.0
